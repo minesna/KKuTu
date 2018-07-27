@@ -110,6 +110,11 @@ exports.turnEnd = function(){
 			answer: my.game.answer ? my.game.answer._id : ""
 		});
 	}
+	if(my.opts.outzero) {
+		score = -9999;
+	} else {
+		score = Const.getPenalty(my.game.chain, target.game.score);
+	}
 	my.game._rrt = setTimeout(my.roundReady, 2500);
 };
 exports.submit = function(client, text){
